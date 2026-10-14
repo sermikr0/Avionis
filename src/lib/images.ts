@@ -50,6 +50,12 @@ export const photos = {
     alt: "Semi-truck on a highway at sunset",
     credit: { name: "Unsplash", url: "https://unsplash.com/photos/tv53M6u2bAQ" },
   },
+  // Self-hosted: licence plate painted out and cropped to the intro's 5:4 frame.
+  peterbilt: {
+    src: "/images/intro-peterbilt.jpg",
+    alt: "Red Peterbilt 379 with flame paint and a matching red trailer, parked under a blue sky",
+    credit: { name: "Lasse Nystedt / Unsplash", url: "https://unsplash.com/photos/8MfyuZx8hyI" },
+  },
 } satisfies Record<string, SitePhoto>;
 
 /** Homepage hero clip: aerial of a freeway, 8 s loop. Poster is its first frame. */

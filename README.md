@@ -78,7 +78,8 @@ a genuine "not available, please call" error instead of a fake success.
   `src/content/services.ts` (proposed categories — confirm with the company);
   process and standards in `src/content/standards.ts`.
 - Photos are hotlinked from Unsplash and the hero clip from Pexels (both free
-  for commercial use). To self-host or use the company's own footage, place
+  for commercial use). The home intro photo (a red Peterbilt 379, Unsplash) is
+  self-hosted in `public/images/` with its licence plate painted out. To self-host or use the company's own footage, place
   files in `public/` and update `src/lib/images.ts`; then remove
   `pexels.com` from the CSP in `next.config.ts`.
 

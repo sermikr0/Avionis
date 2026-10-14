@@ -41,7 +41,7 @@ export function Intro() {
           <div className="reveal lg:col-span-6 lg:col-start-7" style={stagger(1)}>
             <div className="relative aspect-[5/4] overflow-clip rounded-[1.75rem] bg-night-700 shadow-card">
               <div className="reveal-zoom absolute inset-0">
-                <Photo photo={photos.highway} sizes="(min-width: 1024px) 50vw, 100vw" />
+                <Photo photo={photos.peterbilt} sizes="(min-width: 1024px) 50vw, 100vw" />
               </div>
             </div>
             <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-white/10 pt-5 font-mono text-[12px] uppercase tracking-[0.12em]">
