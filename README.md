@@ -37,7 +37,7 @@ under 768px and when data saver is on.
 | `/privacy`    | Plain-language privacy notice                                   |
 | `404`         | Custom not-found page; `error.tsx` handles runtime errors       |
 
-Also generated: `/sitemap.xml`, `/robots.txt`, Open Graph image, SVG favicon,
+Also generated: `/sitemap.xml`, `/robots.txt`, Open Graph image, PNG favicon,
 Apple touch icon and LocalBusiness JSON-LD (verifiable facts only).
 
 ## Getting started
@@ -66,6 +66,14 @@ a genuine "not available, please call" error instead of a fake success.
 | `NEXT_PUBLIC_GOOGLE_MAPS_EMBED_API_KEY` | no       | Embedded map on `/contact` (restrict the key to the domain) |
 
 ## Content and media
+
+- Logo: the faceted blue-and-gold "A" above the AVIONIS wordmark, as transparent
+  PNGs in `src/assets/brand/` — `logo.png` (original colours, used on the white
+  pill nav and the Open Graph image) and `logo-on-dark.png` (wordmark in white,
+  used in the footer). `<Logo tone="dark" | "light" height={…} />` in
+  `src/components/brand/logo.tsx` picks the file. The favicon
+  (`src/app/icon.png`) and Apple touch icon (`src/app/apple-icon.png`) show the
+  "A" alone on white.
 
 - Company facts live in `src/lib/site.ts`; the service catalog in
   `src/content/services.ts` (proposed categories — confirm with the company);
@@ -128,7 +136,7 @@ set `server_name` in `/etc/nginx/sites-available/avionis.conf`, and run
 src/
   app/               routes, metadata, sitemap/robots, OG image, icons, 404, error
   components/
-    brand/           logo mark and wordmark
+    brand/           logo component (artwork in src/assets/brand/)
     layout/          floating pill header, footer, skip link
     forms/           rate form, contact form, shared dark field components
     sections/        page hero, CTA, photo band, section nav, map embed

@@ -64,8 +64,8 @@ export function Header() {
             scrolled && "shadow-[0_20px_50px_-20px_rgb(0_0_0/0.8)]",
           )}
         >
-          <Link href="/" className="rounded-full" aria-label={`${site.brand} — home`}>
-            <Logo tone="light" compact />
+          <Link href="/" className="shrink-0 rounded-full" aria-label={`${site.brand} — home`}>
+            <Logo tone="light" height={50} eager />
           </Link>
 
           <nav aria-label="Primary" className="hidden lg:block">

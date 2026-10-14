@@ -1,5 +1,11 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
+
+// Read once at module scope; the asset does not depend on the request.
+const logoData = await readFile(join(process.cwd(), "src/assets/brand/logo.png"), "base64");
+const logoSrc = `data:image/png;base64,${logoData}`;
 
 export const alt = `${site.brand} — ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
@@ -21,17 +27,10 @@ export default function OpenGraphImage() {
           fontFamily: "serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <svg width="72" height="72" viewBox="0 0 40 40">
-            <circle cx="20" cy="20" r="18.5" fill="#15171b" />
-            <path d="M12 27.5 20 11l8 16.5" fill="none" stroke="#f6f3ee" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M15.2 22.5h9.6" fill="none" stroke="#e3532a" strokeWidth="3.2" strokeLinecap="round" />
-          </svg>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 44, lineHeight: 1 }}>Avionis</div>
-            <div style={{ marginTop: 8, fontSize: 15, letterSpacing: 5, color: "#6f7781", fontFamily: "monospace" }}>
-              ASIA PRIME INC.
-            </div>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 28 }}>
+          <img src={logoSrc} alt="" width={179} height={120} />
+          <div style={{ marginBottom: 6, fontSize: 15, letterSpacing: 5, color: "#6f7781", fontFamily: "monospace" }}>
+            ASIA PRIME INC.
           </div>
         </div>
 

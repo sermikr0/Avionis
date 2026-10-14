@@ -31,7 +31,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.4fr]">
           <div>
             <Link href="/" className="inline-block rounded-full" aria-label={`${site.brand} — home`}>
-              <Logo />
+              <Logo height={110} />
             </Link>
             <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-paper/60">
               {site.legalName}. A motor carrier based in Morrisville, Pennsylvania, on the I-95 corridor.

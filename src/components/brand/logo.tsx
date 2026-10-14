@@ -1,43 +1,39 @@
-import { cn } from "@/lib/cn";
+import Image from "next/image";
+import logoOnDark from "@/assets/brand/logo-on-dark.png";
+import logoOnLight from "@/assets/brand/logo.png";
+import { site } from "@/lib/site";
 
 export type LogoTone = "light" | "dark";
 
-/** Compass bezel with a climbing "A" chevron; the orange bar is the horizon line. */
-export function Mark({ className, tone = "dark" }: { className?: string; tone?: LogoTone }) {
-  const bg = tone === "dark" ? "#ff4d1c" : "#0b0d10";
-  const fg = tone === "dark" ? "#ffffff" : "#f4efe8";
-  const bar = tone === "dark" ? "#0b0d10" : "#ff4d1c";
-  return (
-    <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false" className={className}>
-      <circle cx="20" cy="20" r="18.5" fill={bg} />
-      <path d="M20 1.5v4M20 34.5v4M1.5 20h4M34.5 20h4" stroke={fg} strokeWidth="1.5" opacity="0.5" />
-      <path d="M12 27.5 20 11l8 16.5" fill="none" stroke={fg} strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M15.2 22.5h9.6" fill="none" stroke={bar} strokeWidth="3.2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-/** `dark` = placed on a dark background (default); `light` = on the white pill nav. */
+/**
+ * Company logo: the faceted blue-and-gold "A" above the AVIONIS wordmark.
+ * `dark` = placed on a dark background (default; wordmark drawn in white);
+ * `light` = on the white pill nav or other light surfaces (original colours).
+ */
 export function Logo({
   tone = "dark",
+  height = 56,
+  eager = false,
   className,
-  compact = false,
 }: {
   tone?: LogoTone;
+  /** Rendered height in CSS pixels; the width follows the artwork's aspect ratio. */
+  height?: number;
+  /** Load immediately, for a logo that is visible on first paint. */
+  eager?: boolean;
   className?: string;
-  compact?: boolean;
 }) {
-  const primary = tone === "dark" ? "text-paper" : "text-night-900";
-  const sub = tone === "dark" ? "text-paper/50" : "text-night-900/55";
+  const src = tone === "dark" ? logoOnDark : logoOnLight;
+
   return (
-    <span className={cn("inline-flex items-center gap-3", className)}>
-      <Mark tone={tone} className="h-9 w-9 shrink-0" />
-      <span className="flex flex-col leading-none">
-        <span className={cn("display text-[22px] leading-none tracking-[0.04em]", primary)}>Avionis</span>
-        {!compact && (
-          <span className={cn("eyebrow mt-1 text-[9px] tracking-[0.22em]", sub)}>Asia Prime Inc.</span>
-        )}
-      </span>
-    </span>
+    <Image
+      src={src}
+      alt={site.brand}
+      height={height}
+      width={Math.round((height * src.width) / src.height)}
+      quality={85}
+      loading={eager ? "eager" : undefined}
+      className={className}
+    />
   );
 }
