@@ -11,7 +11,7 @@ import { stagger } from "@/lib/motion";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Freight services from Avionis (Asia Prime Inc.) in Morrisville, Pennsylvania: dry van truckload, partials, Northeast corridor, cross-country, dedicated capacity and expedited.",
+    "Freight services from Avionis (Asia Prime Inc.) in Morrisville, Pennsylvania: dry van truckload, partials, cross-country, dedicated capacity and expedited.",
   alternates: { canonical: "/services" },
   openGraph: { url: "/services" },
 };

@@ -1,7 +1,6 @@
 import {
   Boxes,
   CalendarRange,
-  Compass,
   Container,
   Gauge,
   Route,
@@ -54,22 +53,6 @@ export const services: Service[] = [
       "Freight that can ride with other shipments",
     ],
     icon: Boxes,
-  },
-  {
-    slug: "northeast-corridor",
-    title: "Northeast corridor",
-    short:
-      "Short, repeatable lanes across Pennsylvania, New Jersey, New York, Delaware, Maryland and New England.",
-    description: [
-      "Morrisville sits on the I-95 corridor, across the Delaware River from Trenton: Philadelphia is about 30 miles away, New York City about 70, Baltimore and Washington well within a day.",
-      "Regional freight rewards a carrier that knows the receivers, the traffic and the appointment culture of each market.",
-    ],
-    suitedFor: [
-      "Next-day deliveries within the region",
-      "Distribution to regional warehouses and retail DCs",
-      "Shuttle moves between plants and ports",
-    ],
-    icon: Compass,
   },
   {
     slug: "long-haul",

@@ -8,7 +8,7 @@ import { services } from "@/content/services";
 import { photos, type SitePhoto } from "@/lib/images";
 import { stagger } from "@/lib/motion";
 
-const cardPhotos: SitePhoto[] = [photos.highway, photos.dock, photos.road, photos.horizon, photos.gate, photos.night];
+const cardPhotos: SitePhoto[] = [photos.highway, photos.dock, photos.road, photos.horizon, photos.gate];
 
 /** Photo-backed service cards; the image zooms slowly on hover. */
 export function ServicesGrid() {
@@ -20,7 +20,7 @@ export function ServicesGrid() {
             eyebrow="Services"
             title={
               <>
-                Six ways to <em>move it.</em>
+                Five ways to <em>move it.</em>
               </>
             }
             lead="From a single dry van to a dedicated weekly lane, the service is matched to the shipment — never the other way around."
@@ -30,9 +30,13 @@ export function ServicesGrid() {
           </ButtonLink>
         </div>
 
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-14 flex flex-wrap justify-center gap-5">
           {services.map((service, index) => (
-            <li key={service.slug} className="reveal" style={stagger(index, 4)}>
+            <li
+              key={service.slug}
+              className="reveal w-full sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]"
+              style={stagger(index, 4)}
+            >
               <Link
                 href={`/services#${service.slug}`}
                 className="group relative flex aspect-[4/5] flex-col justify-end overflow-clip rounded-3xl bg-night-800 p-7 text-paper shadow-card"

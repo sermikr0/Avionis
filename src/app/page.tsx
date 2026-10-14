@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { FlightPlan } from "@/components/home/flight-plan";
 import { Hero } from "@/components/home/hero";
 import { Intro } from "@/components/home/intro";
-import { LaneBoard } from "@/components/home/lane-board";
 import { ServicesGrid } from "@/components/home/services-grid";
 import { Standards } from "@/components/home/standards";
 import { Cta } from "@/components/sections/cta";
@@ -20,7 +19,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <LaneBoard />
       <Intro />
       <ServicesGrid />
       <PhotoBand />

@@ -16,7 +16,6 @@ Geist for text and Geist Mono for the instrument-style readouts
 
 - full-screen looping hero video with a poster fallback (`src/components/home/hero-media.tsx`)
 - floating white pill navigation over the media
-- "Departures" lane board with staggered drop-in rows and a blinking cursor
 - photo-backed service cards (slow zoom on hover)
 - drifting full-bleed photo bands, moving hazard stripes, scroll-driven reveals
 - slanted (clip-path) section ledges and an orange call-to-action block
@@ -28,9 +27,9 @@ under 768px and when data saver is on.
 
 | Route         | Purpose                                                         |
 | ------------- | --------------------------------------------------------------- |
-| `/`           | Hero, lane board, who we are, services, photo band, flight plan, instruments, CTA |
+| `/`           | Hero, who we are, services, photo band, flight plan, instruments, CTA |
 | `/about`      | Company, mission, principles, reliability, safety & communication |
-| `/services`   | Six service categories with a sticky in-page nav                |
+| `/services`   | Five service categories with a sticky in-page nav               |
 | `/quote`      | Rate request form (server-validated, emailed to the office)     |
 | `/contact`    | Phone, address, business inquiry form, map                      |
 | `/compliance` | USDOT / MC with links to the official FMCSA records             |
@@ -77,8 +76,7 @@ a genuine "not available, please call" error instead of a fake success.
 
 - Company facts live in `src/lib/site.ts`; the service catalog in
   `src/content/services.ts` (proposed categories — confirm with the company);
-  lane board distances in `src/content/lanes.ts`; process and standards in
-  `src/content/standards.ts`.
+  process and standards in `src/content/standards.ts`.
 - Photos are hotlinked from Unsplash and the hero clip from Pexels (both free
   for commercial use). To self-host or use the company's own footage, place
   files in `public/` and update `src/lib/images.ts`; then remove
@@ -140,9 +138,9 @@ src/
     layout/          floating pill header, footer, skip link
     forms/           rate form, contact form, shared dark field components
     sections/        page hero, CTA, photo band, section nav, map embed
-    home/            hero (video), lane board, intro, services grid, flight plan, standards
+    home/            hero (video), intro, services grid, flight plan, standards
     ui/              button, container, section heading, photo, copy-value
-  content/           services, lanes, standards (edit copy here)
+  content/           services, standards (edit copy here)
   lib/               site constants, images, validation, motion helpers
   server/            server actions, email delivery, rate limiter (server only)
 deploy/              server-bootstrap.sh (once), deploy.sh (every release)
