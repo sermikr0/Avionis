@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { PageHero } from "@/components/sections/page-hero";
 import { Container } from "@/components/ui/container";
 import { site, telHref } from "@/lib/site";
@@ -10,7 +11,12 @@ export const metadata: Metadata = {
   openGraph: { url: "/privacy" },
 };
 
-const sections = [
+const sections: {
+  title: string;
+  body: string;
+  list?: ReactNode[];
+  closing?: string;
+}[] = [
   {
     title: "What we collect",
     body: "When you submit the rate request or contact form, we receive the information you enter: your name, company, email address, phone number, shipment details and any message you include. We do not collect this information unless you choose to send it.",
@@ -18,6 +24,22 @@ const sections = [
   {
     title: "How we use it",
     body: "We use what you send to respond to your inquiry, prepare a rate, and coordinate transportation if you decide to work with us. We do not sell your information or share it with third parties for their own marketing.",
+  },
+  {
+    title: "SMS messaging",
+    body: "If you opt in to receive SMS messages from Avionis, we may send you text messages related to transportation services, shipment updates, dispatch coordination, and customer inquiries.",
+    list: [
+      "Message frequency may vary.",
+      "Message and data rates may apply.",
+      <>
+        Reply <strong className="text-paper">STOP</strong> at any time to opt out.
+      </>,
+      <>
+        Reply <strong className="text-paper">HELP</strong> for assistance.
+      </>,
+    ],
+    closing:
+      "SMS consent and mobile phone numbers collected for SMS messaging will not be shared, sold, or disclosed to third parties or affiliates for their marketing or promotional purposes.",
   },
   {
     title: "Service providers",
@@ -49,6 +71,14 @@ export default function PrivacyPage() {
               <div key={section.title}>
                 <h2 className="display text-3xl text-paper">{section.title}</h2>
                 <p className="mt-4">{section.body}</p>
+                {section.list && (
+                  <ul className="mt-4 list-disc space-y-2 pl-6 marker:text-accent-600">
+                    {section.list.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+                {section.closing && <p className="mt-4">{section.closing}</p>}
               </div>
             ))}
             <div>
